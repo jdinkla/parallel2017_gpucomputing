@@ -13,5 +13,47 @@
       <UniqueIdentifier>{D011BB44-1BF7-4113-997B-A081035B40D8}</UniqueIdentifier>
       <Extensions>cl</Extensions>
     </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{fab32c46-3b01-4dd3-8c09-4c141c443d58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="smooth">
+      <UniqueIdentifier>{c84bde07-12e3-42a7-a40e-7b375d8dbd4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes">
+      <UniqueIdentifier>{b10ffd1d-e15f-4e21-b644-6039854ab304}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opencl_map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="opencl_smooth.cpp">
+      <Filter>smooth</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCLUtilities.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Intel_OpenCL_Build_Rules Include="opencl_smooth.cl">
+      <Filter>smooth</Filter>
+    </Intel_OpenCL_Build_Rules>
+    <Intel_OpenCL_Build_Rules Include="opencl_map.cl">
+      <Filter>map</Filter>
+    </Intel_OpenCL_Build_Rules>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OpenCLUtilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

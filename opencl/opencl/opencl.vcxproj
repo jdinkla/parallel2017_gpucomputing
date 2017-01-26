@@ -179,6 +179,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OpenCLUtilities.cpp" />
+    <ClCompile Include="opencl_map.cpp" />
+    <ClCompile Include="opencl_smooth.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Intel_OpenCL_Build_Rules Include="opencl_map.cl" />
+    <Intel_OpenCL_Build_Rules Include="opencl_smooth.cl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Defs.h" />
+    <ClInclude Include="OpenCLUtilities.h" />
+    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
