@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="map">
+      <UniqueIdentifier>{7741bfbe-e6dc-4063-822a-9700a4d38a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stencil">
+      <UniqueIdentifier>{aec8a6b5-1a7d-47fc-87eb-da4651e488fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reduce">
+      <UniqueIdentifier>{65fef1b0-54a7-462e-afa4-09382a94e2ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="includes">
+      <UniqueIdentifier>{1a3c8df7-9866-430c-9dea-4c271d024781}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gpu_map.cuh">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="map.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="par_map.h">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="defaults_smooth.h">
+      <Filter>stencil</Filter>
+    </ClInclude>
+    <ClInclude Include="gpu_smooth.cuh">
+      <Filter>stencil</Filter>
+    </ClInclude>
+    <ClInclude Include="par_smooth.h">
+      <Filter>stencil</Filter>
+    </ClInclude>
+    <ClInclude Include="smooth.h">
+      <Filter>stencil</Filter>
+    </ClInclude>
+    <ClInclude Include="CudaUtilities.cuh">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>includes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="gpu_map.cu">
+      <Filter>map</Filter>
+    </CudaCompile>
+    <CudaCompile Include="gpu_smooth.cu">
+      <Filter>stencil</Filter>
+    </CudaCompile>
+    <CudaCompile Include="gpu_smooth_expl.cu">
+      <Filter>stencil</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="par_map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="par_smooth.cpp">
+      <Filter>stencil</Filter>
+    </ClCompile>
+    <ClCompile Include="smooth.cpp">
+      <Filter>stencil</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>includes</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
