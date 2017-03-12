@@ -10,7 +10,11 @@
 #include <cl/cl.hpp>
  //#include "cl_1_2.hpp"
 
+void info_platform(cl::Platform& p);
+
 void info_platforms();
+
+void info_device(cl::Device& d);
 
 void info_devices();
 

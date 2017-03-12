@@ -46,7 +46,7 @@ void example_gpu_map_large() {
 	auto f = [] __host__ __device__(int x) { return x + x; };
 	gpu_map(src, dest, w, h, f);
 
-	// dest should contain f(12) and not 12 anymore
+	// dest should contain 2*12 and not 12 anymore
 	std::cout << "Val " << dest[0] << std::endl;
 	assert(dest[0] == f(12));
 	assert(dest[(w - 1)*(h - 1) - 1] == f(12));

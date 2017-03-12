@@ -3,11 +3,16 @@
 
 using namespace std;
 
-// map
-extern void example_opencl_map();;
 
-// stencil
-//extern void example_opencl_smooth();
+extern void info_platforms();
+extern void info_devices();
+
+// map
+extern void example_map();
+extern void example_par_map();
+extern void example_par_map_large();
+extern void example_opencl_map();;
+extern void example_opencl_map_large();;
 
 int main(int argc, char** argv) {
 	int rc = 0;
@@ -25,12 +30,25 @@ int main(int argc, char** argv) {
 		switch (alg)
 		{
 
-			// map
-		case 1: example_opencl_map();
+		case 1: info_platforms();
 			break;
 
-			// stencil
-		case 10: example_opencl_map();
+		case 2: info_devices();
+			break;
+
+		case 10: example_map();
+			break;
+
+		case 11: example_par_map();
+			break;
+
+		case 12: example_par_map_large();
+			break;
+
+		case 13: example_opencl_map();
+			break;
+
+		case 14: example_opencl_map_large();
 			break;
 
 		default:

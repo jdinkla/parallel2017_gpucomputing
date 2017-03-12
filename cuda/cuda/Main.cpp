@@ -5,9 +5,9 @@
 using namespace std;
 
 // map
-extern void example_map();;
-extern void example_par_map();;
-extern void example_par_map_large();;
+extern void example_map();
+extern void example_par_map();
+extern void example_par_map_large();
 extern void example_gpu_map();
 extern void example_gpu_map_large();
 

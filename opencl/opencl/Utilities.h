@@ -41,3 +41,13 @@ static inline std::string read_file(std::string name)
 	buffer << t.rdbuf();
 	return buffer.str();
 }
+
+template <typename T>
+void fill(T* dest, int w, int h, const T value) {
+	for (int y = 0; y < h; y++) {
+		for (int x = 0; x < w; x++) {
+			const int idx = y * w + x;
+			dest[idx] = value;
+		}
+	}
+}

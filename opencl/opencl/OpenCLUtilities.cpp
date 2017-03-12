@@ -14,6 +14,16 @@
 
 using namespace std;
 
+void info_platform(cl::Platform& p)
+{
+	cout << "name:       '" << p.getInfo<CL_PLATFORM_NAME>() << "'" << endl;
+	cout << "vendor:     '" << p.getInfo<CL_PLATFORM_VENDOR>() << "'" << endl;
+	cout << "version:    '" << p.getInfo<CL_PLATFORM_VERSION>() << "'" << endl;
+	cout << "profile:    '" << p.getInfo<CL_PLATFORM_PROFILE>() << "'" << endl;
+	cout << "extensions: '" << p.getInfo<CL_PLATFORM_EXTENSIONS>() << "'" << endl;
+	cout << endl;
+}
+
 void info_platforms()
 {
 	vector<cl::Platform> platforms;
@@ -23,12 +33,7 @@ void info_platforms()
 		cl::Platform::get(&platforms);
 		for (auto& p : platforms)
 		{
-			cout << "name:       '" << p.getInfo<CL_PLATFORM_NAME>() << "'" << endl;
-			cout << "vendor:     '" << p.getInfo<CL_PLATFORM_VENDOR>() << "'" << endl;
-			cout << "version:    '" << p.getInfo<CL_PLATFORM_VERSION>() << "'" << endl;
-			cout << "profile:    '" << p.getInfo<CL_PLATFORM_PROFILE>() << "'" << endl;
-			cout << "extensions: '" << p.getInfo<CL_PLATFORM_EXTENSIONS>() << "'" << endl;
-			cout << endl;
+			info_platform(p);
 		}
 
 	}
@@ -36,6 +41,17 @@ void info_platforms()
 	{
 		cerr << "ERROR " << e.what() << ", code=" << e.err() << endl;
 	}
+}
+
+
+void info_device(cl::Device& d)
+{
+	cout << "  name:       '" << d.getInfo<CL_DEVICE_NAME>() << "'" << endl;
+	cout << "  vendor:     '" << d.getInfo<CL_DEVICE_VENDOR>() << "'" << endl;
+	cout << "  available:  '" << d.getInfo<CL_DEVICE_AVAILABLE>() << "'" << endl;
+	cout << "  comp avail: '" << d.getInfo<CL_DEVICE_COMPILER_AVAILABLE>() << "'" << endl;
+	cout << "  extensions: '" << d.getInfo<CL_DEVICE_EXTENSIONS>() << "'" << endl;
+	cout << endl;
 }
 
 void info_devices()
@@ -52,17 +68,10 @@ void info_devices()
 			cout << "platform:   '" << p.getInfo<CL_PLATFORM_NAME>() << "' has " << devices.size() << " devices" << endl;
 			for (auto& d : devices)
 			{
-				cout << "  name:       '" << d.getInfo<CL_DEVICE_NAME>() << "'" << endl;
-				cout << "  vendor:     '" << d.getInfo<CL_DEVICE_VENDOR>() << "'" << endl;
-				cout << "  available:  '" << d.getInfo<CL_DEVICE_AVAILABLE>() << "'" << endl;
-				cout << "  comp avail: '" << d.getInfo<CL_DEVICE_COMPILER_AVAILABLE>() << "'" << endl;
-				cout << "  extensions: '" << d.getInfo<CL_DEVICE_EXTENSIONS>() << "'" << endl;
-				cout << endl;
+				info_device(d);
 			}
-
 			cout << endl;
 		}
-
 	}
 	catch (cl::Error e)
 	{
