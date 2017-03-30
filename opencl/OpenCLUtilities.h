@@ -1,14 +1,20 @@
 /*
- * Copyright (c) 2015, 2017 by Jörn Dinkla, www.dinkla.net, All rights reserved.
+ * Copyright (c) 2015, 2017 by Jï¿½rn Dinkla, www.dinkla.net, All rights reserved.
  *
  * See the LICENSE file in the root directory.
  */
 
 #pragma once
 
+#include "Defs.h"
+
 #include <string>
+#ifdef MAC
+#define __CL_ENABLE_EXCEPTIONS
+#include "cl_1_2.hpp"
+#else
 #include <cl/cl.hpp>
- //#include "cl_1_2.hpp"
+#endif
 
 void info_platform(cl::Platform& p);
 

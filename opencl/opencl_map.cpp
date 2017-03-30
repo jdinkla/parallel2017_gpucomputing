@@ -1,6 +1,12 @@
+#include "Defs.h"
 #include "par_map.h"
 #include <string>
+#ifdef MAC
+#define __CL_ENABLE_EXCEPTIONS
+#include "cl_1_2.hpp"
+#else
 #include <cl/cl.hpp>
+#endif
 #include "OpenCLUtilities.h"
 #include "Utilities.h"
 #include <iostream>
