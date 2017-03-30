@@ -14,7 +14,9 @@
 
 using namespace std;
 
-const int platform_id = 1;
+static const string kernel_filename = "opencl_map.cl";
+
+const int platform_id = 0;
 const int device_id = 0;
 
 void example_opencl_map_for_slide() {
@@ -25,14 +27,12 @@ void example_opencl_map_for_slide() {
 	int* dest = (int*)malloc(sz);
 	par_fill(src, w, h, 12);
 
-
 	cl::Platform platform = get_platforms()[platform_id];
 	cl::Device device = get_devices(platform)[device_id];
 	cl::Context context = get_context(platform, device);
 	cl::CommandQueue queue = cl::CommandQueue(context, device, 
 		CL_QUEUE_PROFILING_ENABLE);
 
-	const string kernel_filename = "../opencl/opencl/opencl_map.cl";
 	const string code = read_file(kernel_filename);
 	cl::Program::Sources sources(1, { code.c_str(), code.length() + 1 });
 	cl::Program program = cl::Program(context, sources);
@@ -60,11 +60,8 @@ void example_opencl_map_for_slide() {
 	queue.finish();
 }
 
-void example_opencl_map() {
-	const int w = 100;
-	const int h = 80;
+void example_opencl_map_generic(const int w, const int h) {
 	const size_t sz = w * h * sizeof(int);
-	const string kernel_filename = "../opencl/opencl/opencl_map.cl";
 
 	// Allocate
 	int* src = (int*)malloc(sz);
@@ -126,7 +123,6 @@ void example_opencl_map() {
 		NULL);
 
 	queue.finish(); 
-//	event_kernel.wait();
 
 	// dest should contain 24s now
 	// cout << "Val " << dest[0] << endl;
@@ -134,7 +130,10 @@ void example_opencl_map() {
 	assert(dest[(w - 1)*(h - 1) - 1] == 24);
 }
 
-void example_opencl_map_large() {
+void example_opencl_map() {
+	example_opencl_map_generic(100, 80);
 }
 
-
+void example_opencl_map_large() {
+	example_opencl_map_generic(10 * 1024, 80 * 1024);
+}
